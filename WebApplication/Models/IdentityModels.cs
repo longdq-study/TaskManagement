@@ -26,7 +26,7 @@ namespace WebApplication.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("TaskManagementDbContext", throwIfV1Schema: false)
         {
         }
 

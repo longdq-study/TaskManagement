@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -179,10 +181,23 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
+    <Compile Include="EF\AspNetRole.cs" />
+    <Compile Include="EF\AspNetUser.cs" />
+    <Compile Include="EF\AspNetUserClaim.cs" />
+    <Compile Include="EF\AspNetUserLogin.cs" />
+    <Compile Include="EF\C__MigrationHistory.cs" />
+    <Compile Include="EF\sysdiagram.cs" />
+    <Compile Include="EF\Task.cs" />
+    <Compile Include="EF\TaskManagementDbContext.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707080129218_initial.cs" />
+    <Compile Include="Migrations\201707080129218_initial.Designer.cs">
+      <DependentUpon>201707080129218_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -522,6 +537,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707080129218_initial.resx">
+      <DependentUpon>201707080129218_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
