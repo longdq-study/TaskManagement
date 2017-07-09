@@ -1,4 +1,4 @@
-namespace WebApplication.EF
+namespace WebApplication.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +6,8 @@ namespace WebApplication.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Task")]
-    public partial class Task
+    [Table("MyTask")]
+    public partial class MyTask
     {
         public long Id { get; set; }
 
