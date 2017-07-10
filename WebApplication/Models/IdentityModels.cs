@@ -4,6 +4,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication.Models
 {
@@ -11,13 +14,18 @@ namespace WebApplication.Models
     public class CustomIdentityUser : IdentityUser
     {
         public string JobTitle { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime ModifyDate { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? CreateDate { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? ModifyDate { get; set; }
         public string ModifyBy { get; set; }
         public string NameIdentifier { get; set; }
+
+       
     }
     public class ApplicationUser : CustomIdentityUser
     {
+        public virtual ICollection<Comment> Comments { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -33,6 +41,7 @@ namespace WebApplication.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<MyTask> MyTasks { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public ApplicationDbContext()
             : base("TaskManagementDbContext", throwIfV1Schema: false)
         {

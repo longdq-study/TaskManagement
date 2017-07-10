@@ -488,7 +488,7 @@ namespace WebApplication.Controllers
                 // Create Admin user
                 string[] name = AdminUserName.Split('@');
 
-                var objNewAdminUser = new ApplicationUser { UserName = name[0], Email = AdminUserName, NameIdentifier=name[0],CreateDate=DateTime.Now };
+                var objNewAdminUser = new ApplicationUser { UserName = name[0].ToString(), Email = AdminUserName, NameIdentifier=name[0].ToString() };
                 var AdminUserCreateResult = UserManager.Create(objNewAdminUser, AdminPassword);
                 // Put user in Admin role
                 UserManager.AddToRole(objNewAdminUser.Id, "Administrator");

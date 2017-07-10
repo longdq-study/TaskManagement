@@ -9,14 +9,15 @@ namespace WebApplication.Models
     [Table("MyTask")]
     public partial class MyTask
     {
+        [Key]
         public long Id { get; set; }
-
+        [Column(TypeName = "datetime2")]
         public DateTime? PlanedStartDate { get; set; }
-
+        [Column(TypeName = "datetime2")]
         public DateTime? PlanedEnDate { get; set; }
-
+        [Column(TypeName = "datetime2")]
         public DateTime? ActualStartDate { get; set; }
-
+        [Column(TypeName = "datetime2")]
         public DateTime? ActualEndDate { get; set; }
 
         public long? AssigneeID { get; set; }
@@ -29,5 +30,9 @@ namespace WebApplication.Models
 
         [Column(TypeName = "ntext")]
         public string Attachment { get; set; }
+
+        public string CommentID { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
