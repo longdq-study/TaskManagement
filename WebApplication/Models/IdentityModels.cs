@@ -2,11 +2,18 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Data.Entity;
 
 namespace WebApplication.Models
 {
+ 
     public class CustomIdentityUser : IdentityUser
     {
+        public string JobTitle { get; set; }
+        public DateTime CreateDate { get; set; }
+        public DateTime ModifyDate { get; set; }
+        public string ModifyBy { get; set; }
         public string NameIdentifier { get; set; }
     }
     public class ApplicationUser : CustomIdentityUser
@@ -25,6 +32,7 @@ namespace WebApplication.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<MyTask> MyTasks { get; set; }
         public ApplicationDbContext()
             : base("TaskManagementDbContext", throwIfV1Schema: false)
         {

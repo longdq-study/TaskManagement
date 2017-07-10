@@ -240,6 +240,12 @@
                 </form>
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
+
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+                    }
+
                     <li id="left-sidebar-menu-dashboard" class="treeview">
                         <a href="#">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
