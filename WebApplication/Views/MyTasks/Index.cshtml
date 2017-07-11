@@ -1,0 +1,208 @@
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<WebApplication.Models.MyTask>
+@*@model IEnumerable<WebApplication.Models.MyTask>*@
+
+@{
+    ViewBag.Title = "Danh sách công việc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@section header {
+        Danh sách công việc
+    }*@
+
+@section cssHeader{
+    <!-- DataTables CSS -->
+    <link href="/AdminLTE/plugins/datatables/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="/AdminLTE/plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <!-- DataTables Responsive CSS -->
+    <link href="/AdminLTE/plugins/datatables-responsive/dataTables.responsive.css" rel="stylesheet" />
+}
+
+
+<p>
+    <a class="btn btn-success" href="/MyTasks/Create/" id="btnCreate">
+        <i class="fa fa-plus-circle"></i> Tạo mới
+    </a>
+</p>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách công việc</h3>
+                <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body table-responsive">
+                <table class="table table-hover" id="task-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().TaskName)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.FirstOrDefault().PlanedStartDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstOrDefault().PlanedEnDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstOrDefault().ActualStartDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstOrDefault().ActualEndDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstOrDefault().AssigneeID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstOrDefault().ReporterID)
+                                </th>*@
+                            <th>
+                                Progress
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().PercentDone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().CreateDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().DueDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().ModifyDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().Attachment)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstOrDefault().CommentID)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @{ var count = 0; }
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@(count += 1)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TaskName)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.PlanedStartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PlanedEnDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ActualStartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ActualEndDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AssigneeID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReporterID)
+                                </td>*@
+                            @{
+                                var v = item.PercentDone;
+                                var res = v + "%";
+                            }
+                            <td>
+                                @if (item.PercentDone <= 30)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width:@res"></div>
+                                    </div>
+                                }
+                                else if (item.PercentDone > 30 && item.PercentDone < 70)
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-primary" style="width:@res"></div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-green" style="width:@res"></div>
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                @if (item.PercentDone <= 30)
+                                {
+                                    <span class="badge bg-red">@res</span>
+                                }
+                                else if (item.PercentDone > 30 && item.PercentDone < 70)
+                                {
+                                    <span class="badge bg-light-blue">@res</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-green">@res</span>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreateDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DueDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifyDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Attachment)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CommentID)
+                            </td>
+                            <td>
+                                @{ var editlink = "/MyTasks/Edit/" + item.Id; }
+                                <a class="btn btn-info" href=@editlink>
+                                    <i class="fa fa-edit"></i> Sửa
+                                </a>
+                                @{ var deleteLink = "/MyTasks/Delete/" + item.Id; }
+                                <a class="btn btn-danger" href=@deleteLink>
+                                    <i class="fa fa-trash"></i> Xóa
+                                </a>
+
+                            </td>
+                        </tr>
+                                    }
+
+                </table>
+                <div class="pull-right">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section jsDatatable{
+    <!-- DataTables JavaScript -->
+    <script src="/AdminLTE/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/AdminLTE/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/AdminLTE/plugins/datatables-responsive/dataTables.responsive.js"></script>
+}

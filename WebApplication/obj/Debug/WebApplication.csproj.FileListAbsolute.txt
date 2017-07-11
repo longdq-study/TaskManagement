@@ -147,6 +147,10 @@ E:\Projects\Study\TaskManagement\WebApplication\bin\Microsoft.Owin.Security.Twit
 E:\Projects\Study\TaskManagement\WebApplication\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.dll
 E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.pdb
-E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
 E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.Migrations.finalDb.resources
 E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.csproj.GenerateResource.Cache
+E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.Migrations.UpdateUserTaskRelationship.resources
+E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.Migrations.AddNameToMyTask.resources
+E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.Migrations.AddDudateForTask.resources
+E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.Migrations.AddDescriptionToMyTask.resources
+E:\Projects\Study\TaskManagement\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache

@@ -13,6 +13,12 @@
     @Styles.Render("~/AdminLTE/dist/css")
     @Styles.Render("~/AdminLTE/dist/css/skins")
 
+    <link href="/AdminLTE/dist/css/admin-lte.min.css" rel="stylesheet" />
+
+    @RenderSection("cssHeader", required: false)
+    <script src="~/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"></script>
+    <script src="~/AdminLTE/plugins/jquery-ui/js/jquery-ui.min.js"></script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -255,6 +261,12 @@
                             <li id="left-sidebar-menu-dashboard-dashboardV2"><a href="@Url.Action("DashboardV2", "Home")"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                         </ul>
                     </li>
+                    <li id="left-sidebar-menu-task" class="treeview">
+                        <a href="@Url.Action("Index", "MyTasks")">
+                            <i class="fa fa-tasks"></i> <span>Nhiệm vụ</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+
+                    </li>
                     <li id="left-sidebar-menu-widgets">
                         <a href="@Url.Action("Index", "Widgets")">
                             <i class="fa fa-th"></i> <span>Widgets</span>
@@ -392,6 +404,7 @@
                     <li class="active">@ViewBag.Title</li>
                 </ol>
             </section>
+
             <section class="content">
                 @RenderBody()
             </section>
@@ -553,7 +566,6 @@
         </aside>
         <div class="control-sidebar-bg"></div>
     </div>
-
     @Scripts.Render("~/AdminLTE/plugins/jquery/js")
     @RenderSection("menu", required: false)
     @Scripts.Render("~/AdminLTE/bootstrap/js")
@@ -561,6 +573,12 @@
     @Scripts.Render("~/AdminLTE/plugins/fastclick/js")
     @Scripts.Render("~/Scripts/Shared/_Layout")
     @Scripts.Render("~/AdminLTE/dist/js")
+    @RenderSection("jsDatatable", required: false)
+    @RenderSection("jsFooter", required: false)
+
     @RenderSection("scripts", required: false)
+
+    
+
 </body>
 </html>

@@ -26,6 +26,9 @@ namespace WebApplication.Models
     public class ApplicationUser : CustomIdentityUser
     {
         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<MyTask> MyTasks { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

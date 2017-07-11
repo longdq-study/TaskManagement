@@ -188,6 +188,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailboxController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyTasksController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Extensions\ClaimsExtensions.cs" />
@@ -197,6 +198,22 @@
     <Compile Include="Migrations\201707101541199_finalDb.cs" />
     <Compile Include="Migrations\201707101541199_finalDb.Designer.cs">
       <DependentUpon>201707101541199_finalDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707101619153_UpdateUserTaskRelationship.cs" />
+    <Compile Include="Migrations\201707101619153_UpdateUserTaskRelationship.Designer.cs">
+      <DependentUpon>201707101619153_UpdateUserTaskRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707101623125_AddNameToMyTask.cs" />
+    <Compile Include="Migrations\201707101623125_AddNameToMyTask.Designer.cs">
+      <DependentUpon>201707101623125_AddNameToMyTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707101803114_AddDudateForTask.cs" />
+    <Compile Include="Migrations\201707101803114_AddDudateForTask.Designer.cs">
+      <DependentUpon>201707101803114_AddDudateForTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707101828558_AddDescriptionToMyTask.cs" />
+    <Compile Include="Migrations\201707101828558_AddDescriptionToMyTask.Designer.cs">
+      <DependentUpon>201707101828558_AddDescriptionToMyTask.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -361,6 +378,7 @@
     <Content Include="AdminLTE\plugins\jquery-ui\js\jquery-ui.js" />
     <Content Include="AdminLTE\plugins\jquery-ui\js\jquery-ui.min.js" />
     <None Include="AdminLTE\plugins\jquery-validate\js\jquery.validate-vsdoc.js" />
+    <Content Include="AdminLTE\plugins\jquery-ui\js\moment.min.js" />
     <Content Include="AdminLTE\plugins\jquery-validate\js\jquery.validate.js" />
     <Content Include="AdminLTE\plugins\jquery-validate\js\jquery.validate.min.js" />
     <Content Include="AdminLTE\plugins\jquery-validate\js\jquery.validate.unobtrusive.js" />
@@ -392,8 +410,10 @@
     <Content Include="AdminLTE\plugins\sparkline\js\jquery.sparkline.min.js" />
     <Content Include="AdminLTE\plugins\timepicker\css\bootstrap-timepicker.css" />
     <Content Include="AdminLTE\plugins\timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="AdminLTE\plugins\timepicker\css\jquery-ui-timepicker-addon.css" />
     <Content Include="AdminLTE\plugins\timepicker\js\bootstrap-timepicker.js" />
     <Content Include="AdminLTE\plugins\timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="AdminLTE\plugins\timepicker\js\jquery-ui-timepicker-addon.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -522,6 +542,11 @@
     <Content Include="Views\Admin\EditUser.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\ViewAllRoles.cshtml" />
+    <Content Include="Views\MyTasks\Create.cshtml" />
+    <Content Include="Views\MyTasks\Delete.cshtml" />
+    <Content Include="Views\MyTasks\Details.cshtml" />
+    <Content Include="Views\MyTasks\Edit.cshtml" />
+    <Content Include="Views\MyTasks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -552,6 +577,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707101541199_finalDb.resx">
       <DependentUpon>201707101541199_finalDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707101619153_UpdateUserTaskRelationship.resx">
+      <DependentUpon>201707101619153_UpdateUserTaskRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707101623125_AddNameToMyTask.resx">
+      <DependentUpon>201707101623125_AddNameToMyTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707101803114_AddDudateForTask.resx">
+      <DependentUpon>201707101803114_AddDudateForTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707101828558_AddDescriptionToMyTask.resx">
+      <DependentUpon>201707101828558_AddDescriptionToMyTask.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
